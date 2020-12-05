@@ -1,20 +1,20 @@
 <template>
     <div class="row justify-center">
         <q-form class="col-5" @submit="onSubmit">
-        <q-input v-model="login" label="Логин"/>
-        <q-input 
-            v-model="password" 
-            :type="isPwd ? 'password' : 'text'" 
-            label="Пароль">
-            <template v-slot:append>
-            <q-icon
-                :name="isPwd ? 'visibility_off' : 'visibility'"
-                class="cursor-pointer"
-                @click="isPwd = !isPwd"
-            />
-            </template>
-        </q-input>
-        <q-btn class="full-width" label="Войти" type="submit"/>
+            <q-input v-model="login" label="Логин"/>
+            <q-input 
+                v-model="password" 
+                :type="isPwd ? 'password' : 'text'" 
+                label="Пароль">
+                <template v-slot:append>
+                <q-icon
+                    :name="isPwd ? 'visibility_off' : 'visibility'"
+                    class="cursor-pointer"
+                    @click="isPwd = !isPwd"
+                />
+                </template>
+            </q-input>
+            <q-btn class="full-width" label="Войти" type="submit"/>
         </q-form>
     </div>
 </template>
