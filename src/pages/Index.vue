@@ -6,12 +6,6 @@
           greedy
           @submit="onSubmit"
       >
-        <!-- <q-input 
-              v-model.number="atheleteNumber"
-              type="number"
-              label="№"
-              style="max-width: 50px"
-        /> -->
         <q-input
               v-model="atheleteName"
               label="Фамилия и имя"
@@ -67,6 +61,9 @@
             title="Участники"
             :data="dataTable"
             :columns="columnsTable"
+            :rows-per-page-options="[0]"
+            style="height: 400px"
+
         />
       </div>
     </div>
