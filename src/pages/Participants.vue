@@ -65,6 +65,7 @@
       <div class="row">
         <q-table
             title="Участники"
+            no-data-label="Участников нет. Добавьте сверху"
             :data="dataTable"
             :columns="columnsTable"
             :rows-per-page-options="[0]"
@@ -157,14 +158,15 @@ export default {
         },
       ],
       dataTable: [
-        {
-          name: 'Гизбрехт Арина',
-          birthYear: 2006,
-          grade: 'I сп.',
-          city: 'Екатеринбург',
-          school: 'СШ "Виктория"',
-          coaches: 'бригада Пастуховой В.С.'
-        },
+        // {
+        //   name: 'Гизбрехт Арина',
+        //   birthYear: 2006,
+        //   grade: 'I сп.',
+        //   gradeToClaim: 'КМС',
+        //   city: 'Екатеринбург',
+        //   school: 'СШ "Виктория"',
+        //   coaches: 'бригада Пастуховой В.С.'
+        // },
       ],
       
     }

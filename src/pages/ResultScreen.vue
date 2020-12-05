@@ -1,7 +1,8 @@
 <template>
     <div>
         <q-table
-            title="Участники"
+            title="Участники Тагильские встречи"
+            separator="cell"
             :data="dataTable"
             :columns="columnsTable"
             :rows-per-page-options="[0]"
@@ -16,6 +17,8 @@ import axios from 'axios'
 export default {
     data() {
         return {
+            myJson: null,
+
             columnsTable: [
                 {
                     name: 'name',
@@ -97,19 +100,51 @@ export default {
                     align: 'left'
                 },
             ],
-            dataTable: [],
+            dataTable: [
+                {
+                    name:           "Мотивилова Анжелика",
+                    birthYear:      2006,
+                    grade:          'I сп.',
+                    gradeToClaim:   'КМС',
+                    city:           'Екатеринбург',
+                    school:         'СШ "Виктория"',
+                    coaches:        'бригада Пастуховой В.С.',
+                    firstType:      '10',
+                    secondType:      '10',
+                    thirdType:      '10',
+                    fourthType:      '10',
+                    sumOfPoints:      '10',
+                    placement:      '10',
+                },
+                {
+                    name:           "Куликова Екатерина",
+                    birthYear:      2005,
+                    grade:          'КМС',
+                    gradeToClaim:   'МС',
+                    city:           'Екатеринбург',
+                    school:         'СШОР №1',
+                    coaches:        'Китайская Н.А.',
+                    firstType:      '10',
+                    secondType:      '10',
+                    thirdType:      '10',
+                    fourthType:      '10',
+                    sumOfPoints:      '10',
+                    placement:      '10',
+                }
+            ],
         }
     },
-
-    methods :{
-        async get(){
-
-        }
-    },
-    mounted :{
-        getData() {
-            
-        }
+    mounted() {
+    //     getData() {
+    //         console.log(`hi`)
+    //         // по идее должен быть параметр соревнования?
+    //         // this.axios.get("http://192.168.1.228:8000/").then(response => {
+    //         //     console.log(response)
+    //         //     // this.dataTable = response
+    //         // }).catch(e => {
+    //         //     console.log(e)
+    //         // })
+    //     }
     }
 }
 </script>

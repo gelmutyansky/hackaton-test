@@ -15,6 +15,7 @@
                 </template>
             </q-input>
             <q-btn class="full-width" label="Войти" type="submit"/>
+            <a href="/#/register">Регистрация</a>
         </q-form>
     </div>
 </template>
@@ -47,7 +48,7 @@ export default {
             }).catch(e => {
                 console.log(e)
             })
-            this.$router.push({ name: 'index'})
+            this.$router.push({ name: 'participants'})
         }
     }
 }
