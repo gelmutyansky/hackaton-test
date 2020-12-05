@@ -1,5 +1,6 @@
 <template>
-    <q-form class="col-8" @submit="onSubmit">
+    <div class="row justify-center">
+        <q-form class="col-5" @submit="onSubmit">
         <q-input label="Логин"/>
         <q-input 
             v-model="password" 
@@ -13,8 +14,9 @@
             />
             </template>
         </q-input>
-        <q-btn label="Войти" type="submit"/>
-    </q-form>
+        <q-btn class="full-width" label="Войти" type="submit"/>
+        </q-form>
+    </div>
 </template>
 
 <script>
@@ -27,6 +29,11 @@ export default {
     },
     methods: {
         onSubmit() {
+            // логин
+            // получаем success и тип входа
+            // если тренер, то страничка для тренеров с загрузкой файла
+            // если глав секретарь, то её страничка
+
             this.$router.push({ name: 'index'})
         }
     }

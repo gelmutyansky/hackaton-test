@@ -2,9 +2,11 @@
   <q-page >
     <div class="column q-gutter-md">
       <q-form 
+          ref="atheleteForm"
           class="row q-gutter-md"
           greedy
           @submit="onSubmit"
+          @reset="onReset"
       >
         <q-input
               v-model="atheleteName"
@@ -24,6 +26,7 @@
               label="Разряд"
               :options="optionsGrade"
               style="width: 100px"
+              clearable
               :rules="[ val => val && val.length > 0 || 'Обязательное поле']"
         />
         <q-select
@@ -31,6 +34,7 @@
               label="Разряд претендуемый"
               :options="optionsGrade"
               style="width: 190px"
+              clearable
               :rules="[ val => val && val.length > 0 || 'Обязательное поле']"
         />
         <q-select
@@ -38,6 +42,7 @@
               label="Город"
               style="width: 200px"
               :options="optionsCity"
+              clearable
               :rules="[ val => val && val.length > 0 || 'Обязательное поле']"
         />
         <q-select
@@ -45,6 +50,7 @@
               label="Спорт школа"
               style="width: 200px"
               :options="optionsSchools"
+              clearable
               :rules="[ val => val && val.length > 0 || 'Обязательное поле']"
         />
         <q-input
@@ -174,7 +180,18 @@ export default {
             coaches: this.atheleteCoaches
         }
         this.dataTable = [...this.dataTable, addRow]
-     }
+        this.$refs.atheleteForm.reset();
+     },
+
+     onReset() {
+        this.atheleteName = null
+        this.atheleteBirthYear = null
+        this.athleteGrade = null
+        this.athleteGradeToClaim = null
+        this.athleteCity = null           // можно это и ниже не очищать, если организатор вносит с одной таблицы (ux мб удобно)
+        this.athleteSchool = null
+        this.atheleteCoaches = null
+     },
    }
 }
 </script>
