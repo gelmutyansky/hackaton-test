@@ -179,6 +179,7 @@ export default {
             school: this.athleteSchool,
             coaches: this.atheleteCoaches
         }
+        console.log(JSON.stringify(addRow))
         this.dataTable = [...this.dataTable, addRow]
         this.$refs.atheleteForm.reset();
      },

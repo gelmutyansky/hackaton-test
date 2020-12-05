@@ -20,6 +20,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
     data () {
         return {
@@ -33,7 +35,12 @@ export default {
             // получаем success и тип входа
             // если тренер, то страничка для тренеров с загрузкой файла
             // если глав секретарь, то её страничка
-
+            axios.get(`http://192.168.1.228:8000/results`).then(response => {
+                // this.user = response.data.results[0]
+                console.log(response)
+            }).catch(e => {
+                console.log(e)
+            })
             this.$router.push({ name: 'index'})
         }
     }
