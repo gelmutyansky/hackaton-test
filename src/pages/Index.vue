@@ -77,6 +77,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'PageIndex',
   data () {
@@ -174,12 +176,18 @@ export default {
             name: this.atheleteName,
             birthYear: this.atheleteBirthYear,
             grade: this.athleteGrade,
-            gradeToClaim: this.atheleGradeToClaim,
+            gradeToClaim: this.athleteGradeToClaim,
             city: this.athleteCity,
             school: this.athleteSchool,
             coaches: this.atheleteCoaches
         }
         console.log(JSON.stringify(addRow))
+         axios.post(`http://192.168.1.228:8000/sportsmans/createSportsmans`, JSON.stringify(addRow)).then(response => {
+                // this.user = response.data.results[0]
+                console.log(response)
+            }).catch(e => {
+                console.log(e)
+            })
         this.dataTable = [...this.dataTable, addRow]
         this.$refs.atheleteForm.reset();
      },

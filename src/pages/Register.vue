@@ -1,7 +1,7 @@
 <template>
     <div class="row justify-center">
         <q-form class="col-5" @submit="onSubmit">
-        <q-input v-model="login" label="Логин"/>
+        <q-input v-model="username" label="Логин"/>
         <q-input 
             v-model="password" 
             :type="isPwd ? 'password' : 'text'" 
@@ -14,7 +14,7 @@
             />
             </template>
         </q-input>
-        <q-btn class="full-width" label="Войти" type="submit"/>
+        <q-btn class="full-width" label="Зарегистрироваться" type="submit"/>
         </q-form>
     </div>
 </template>
@@ -25,8 +25,8 @@ import axios from 'axios'
 export default {
     data () {
         return {
-            login: '',
-            password: '',
+            username: null,
+            password: null,
             isPwd: true
         }
     },
@@ -37,17 +37,18 @@ export default {
             // если тренер, то страничка для тренеров с загрузкой файла
             // если глав секретарь, то её страничка
             const infoToSend = {
-                login: this.login,
+                login: this.username,
                 password: this.password
             }
-
-            axios.post(`http://192.168.1.228:8000/login`, JSON.stringify(infoToSend)).then(response => {
+            console.log(JSON.stringify(infoToSend))
+            axios.post(`http://192.168.1.228:8000/registration`, JSON.stringify(infoToSend)).then(response => {
                 // this.user = response.data.results[0]
                 console.log(response)
+                this.$router.push({ name: 'coaches'})
             }).catch(e => {
                 console.log(e)
             })
-            this.$router.push({ name: 'index'})
+            // this.$router.push({ name: 'index'})
         }
     }
 }
