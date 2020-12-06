@@ -8,6 +8,7 @@
             :rows-per-page-options="[0]"
             style="height: 400px"
         />
+        <a href="/#/participants">Добавление участников на соревнование</a>
     </div>
 </template>
 

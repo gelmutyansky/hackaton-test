@@ -73,6 +73,7 @@
 
         />
       </div>
+      <a href="/#/result">Результаты</a>
     </div>
   </q-page>
 </template>

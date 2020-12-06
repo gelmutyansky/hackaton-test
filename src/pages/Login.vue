@@ -42,9 +42,10 @@ export default {
                 password: this.password
             }
 
-            axios.post(`http://192.168.1.228:8000/login`, JSON.stringify(infoToSend)).then(response => {
+            axios.post(`http://192.168.1.228:8000/auth`, infoToSend).then(response => {
                 // this.user = response.data.results[0]
                 console.log(response)
+                // if-else ->participants | coach
             }).catch(e => {
                 console.log(e)
             })
