@@ -135,17 +135,20 @@ export default {
             ],
         }
     },
+    methods: {
+        getData() {
+            //console.log(`hi`)
+            //по идее должен быть параметр соревнования?
+            axios.get("http://192.168.1.228:8000/finalResult").then(response => {
+                console.log(response)
+                // this.dataTable = response
+            }).catch(e => {
+                console.log(e)
+            })
+        }
+    },
     mounted() {
-    //     getData() {
-    //         console.log(`hi`)
-    //         // по идее должен быть параметр соревнования?
-    //         // this.axios.get("http://192.168.1.228:8000/").then(response => {
-    //         //     console.log(response)
-    //         //     // this.dataTable = response
-    //         // }).catch(e => {
-    //         //     console.log(e)
-    //         // })
-    //     }
+        this.getData()
     }
 }
 </script>

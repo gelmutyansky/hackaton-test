@@ -17,6 +17,22 @@
             <q-btn class="full-width" label="Войти" type="submit"/>
             <a href="/#/register">Регистрация</a>
         </q-form>
+
+        <q-dialog v-model="alert">
+            <q-card>
+            <q-card-section>
+                <div class="text-h6">Ошибка</div>
+            </q-card-section>
+
+            <q-card-section class="q-pt-none">
+                Неправильные данные для входа!
+            </q-card-section>
+
+            <q-card-actions align="right">
+            <q-btn flat label="OK" color="primary" v-close-popup />
+            </q-card-actions>
+            </q-card>
+        </q-dialog>
     </div>
 </template>
 
@@ -28,7 +44,8 @@ export default {
         return {
             login: '',
             password: '',
-            isPwd: true
+            isPwd: true,
+            alert: false,
         }
     },
     methods: {
@@ -45,11 +62,17 @@ export default {
             axios.post(`http://192.168.1.228:8000/auth`, infoToSend).then(response => {
                 // this.user = response.data.results[0]
                 console.log(response)
-                // if-else ->participants | coach
+                if(response.data.login === "")
+                {
+                    this.alert = true
+                    console.log(`Login Failed`)
+                } else {
+                    console.log(`Succ`)
+                    this.$router.push({ name: 'participants'})
+                }
             }).catch(e => {
                 console.log(e)
             })
-            this.$router.push({ name: 'participants'})
         }
     }
 }
